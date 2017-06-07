@@ -168,6 +168,17 @@ $('.modal-wrap').click(function(){
   $('.modal-wrap').fadeOut(300);
 });   
 
+//==============___Portfolio - Ajax___================
+$('a[href=#page-portfolio]').on('click', function(event) {
+  $.get("https://rasouza.com.br/wp-json/wp/v2/portfolio").done(function(data) {
+    data = data+"0";
+    var json = JSON.parse(data);
+    console.log(json);
+  
+    $(".projects-list").html('');
+  });
+});
+
 //End - Document Ready
 });
 
