@@ -169,18 +169,23 @@ $('.modal-wrap').click(function(){
 });   
 
 //==============___Portfolio - Ajax___================
-$('a[href=#page-portfolio]').on('click', function(event) {
-  $.get("https://rasouza.com.br/wp-json/wp/v2/portfolio").done(function(data) {
-    data = data+"0";
-    var json = JSON.parse(data);
-    console.log(json);
-  
-    $(".projects-list").html('');
-  });
+$.get("php/portfolio.php").done(function(data) {
+  app.list = JSON.parse(data);
 });
+
 
 //End - Document Ready
 });
 
 //End - Use Strict mode
 })(jQuery);
+
+var app = new Vue({
+  el: "#portfolio",
+  data: { list: [] },
+  mounted: function() {
+    var lista = this.list;
+    
+  }
+});
+

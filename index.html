@@ -626,19 +626,18 @@
 	            <!-- /Section title -->
 
 	            <!-- Projects list -->
-				<div class="projects-list">
+				<div class="projects-list" id="portfolio">
 
 					<!-- item -->
-					<div class="project-item">
+					<div class="project-item" v-for="item in list">
 						<!-- ==> Put your thumbnail as a background -->
-						<a href="img/portfolio/p1.jpg" class="project-thumbnail nivobox" data-lightbox-gallery="portfolio" style="background-image: url('img/portfolio/thumb-p1.jpg');">
+						<a v-bind:href="item.link" class="project-thumbnail nivobox" data-lightbox-gallery="portfolio" v-bind:style="{ backgroundImage: `url(${item.image})` }">
 							<!-- project-description -->
 							<div class="project-description-wrapper">
 								<div class="project-description">
 									<!-- project name -->
-									<h2 class="project-title">Project Title</h2>
+									<h2 class="project-title">{{ item.title }}</h2>
 									<!-- /project name -->
-									<span class="see-more">Project Tags</span>
 								</div>
 							</div>
 							<!-- /project-description -->
@@ -871,6 +870,7 @@
 <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <!-- Cross-browser -->
 <script src="vendor/cross-browser.js"></script>
+<script src="vendor/vue.min.js"></script>
 <!-- Main Scripts -->
 <script src="js/main.js"></script>
 
